@@ -1,4 +1,4 @@
-# sql-study-orm
+# Study: ORM
 
 ## migrate CSV to django DB
 
