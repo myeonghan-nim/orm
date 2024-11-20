@@ -1,7 +1,32 @@
 # Study: ORM
 
-## migrate CSV to django DB
+## ORM
 
-1. install `django_extensions`
-2. makemigrations and migrate
-3. run `python manage.py runscript init_data`
+ORM은 데이터베이스와 프로그래밍 언어의 객체 사이의 매핑을 제공하여 개발자가 SQL을 직접 작성하지 않고도 데이터베이스를 다룰 수 있도록 돕는 역할.
+이를 통해 코드의 가독성과 유지보수성을 높이는 한편 데이터베이스와의 상호작용을 추상화하여 생산성을 향상.
+
+### django와 ORM
+
+#### django 모델 클래스와 데이터베이스 테이블의 관계
+
+- django 모델 클래스는 데이터베이스 테이블과 1:1로 매핑.
+  - 각 모델 클래스의 속성은 테이블의 열(column)에 해당.
+  - 모델 클래스의 인스턴스는 테이블의 행(row)에 해당.
+
+#### ORM의 동작 흐름
+
+1. 쿼리 빌드: Python 객체의 메서드를 호출하면 django가 이를 SQL 쿼리로 변환.
+2. SQL 실행: 데이터베이스 백엔드에서 해당 SQL을 실행.
+3. 결과 매핑: 쿼리 결과를 다시 Python 객체로 매핑하여 반환.
+
+### ORM의 장단점
+
+1. 장점
+   - 생산성 향상: SQL을 직접 작성하지 않아도 되어 코드 작성 속도 향상.
+   - 데이터베이스 독립성: PostgreSQL, MySQL, SQLite 등 다양한 DBMS에서 동일한 코드로 동작.
+   - 보안: SQL Injection을 기본적으로 방지.
+   - 가독성: Pythonic한 코드로 비즈니스 로직에 집중 가능.
+2. 단점
+   - 복잡한 쿼리 성능: 매우 복잡한 SQL 쿼리는 ORM으로 작성하면 성능이 저하 가능성 존재.
+   - 추상화 오버헤드: ORM의 추상화 레이어로 인해 일부 작업은 SQL보다 느림.
+   - 쿼리 최적화 어려움: ORM 사용 시 생성된 SQL을 명확히 이해하지 못하면 성능 문제가 발생.
